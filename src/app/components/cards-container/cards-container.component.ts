@@ -20,8 +20,8 @@ export class CardsContainerComponent implements OnInit {
     this.cards = this.cardService.getAllCards();
   }
 
-  redirect(name: string) {
-    const link = `/details/${name}`;
+  redirect(card: Card) {
+    const link = `/details/${card.card}/${card.name}`;
     this.router.navigate([link]);
   }
 }

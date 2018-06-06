@@ -3,7 +3,7 @@
   <div
     *ngFor="let card of cards | async"
     class="card-container"
-    (click)="redirect(card.name)">
+    (click)="redirect(card)">
       <app-card
       [name]="card.name"
       [image]="card.image"></app-card>

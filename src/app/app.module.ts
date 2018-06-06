@@ -10,6 +10,8 @@ import { CardsContainerComponent } from './components/cards-container/cards-cont
 import { CardComponent } from './components/card/card.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { InvalidRouteComponent } from './components/invalid-route/invalid-route.component';
+import { SpellDetailsComponent } from './components/spell-details/spell-details.component';
+import { TrapDetailsComponent } from './components/trap-details/trap-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { InvalidRouteComponent } from './components/invalid-route/invalid-route.
     CardsContainerComponent,
     CardComponent,
     CardDetailsComponent,
-    InvalidRouteComponent
+    InvalidRouteComponent,
+    SpellDetailsComponent,
+    TrapDetailsComponent
   ],
   imports: [
     BrowserModule,

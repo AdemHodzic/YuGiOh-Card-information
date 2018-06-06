@@ -1,6 +1,7 @@
 import { Attribute } from '../enums/attributes';
 import { Type } from '../enums/types';
 import { Card } from './card';
+import { CardType } from '../enums/card-type';
 export class Monster extends Card{
 
   name: string;
@@ -8,6 +9,7 @@ export class Monster extends Card{
   attack: number;
   defense: number;
   text: string;
+  card: CardType = CardType.Monster;
 
   constructor(name: string, image: string, attack: number, defense: number, text: string) {
     super();
