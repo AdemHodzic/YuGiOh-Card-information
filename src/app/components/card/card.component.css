@@ -1,0 +1,12 @@
+.card {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}

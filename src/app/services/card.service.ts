@@ -14,4 +14,8 @@ export class CardService {
   getAllCards() {
     return this.cards;
   }
+
+  getNumberOfCards() {
+    return of(MockCards.length);
+  }
 }

@@ -1,3 +1,7 @@
-<p>
-  cards-container works!
-</p>
+<ul>
+  <li *ngFor="let card of cards | async">
+    <app-card
+      [name]="card.name"
+      [image]="card.image"></app-card>
+  </li>
+</ul>
