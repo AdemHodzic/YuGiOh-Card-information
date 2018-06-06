@@ -9,4 +9,12 @@ export class Trap extends Card {
   text: string;
   card: CardType = CardType.Trap;
 
+  constructor(
+    name: string,
+    image: string,
+    type: TrapType,
+    text: string,
+  ) {
+    super();
+  }
 }

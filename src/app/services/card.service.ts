@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MockCards } from '../common/mock-cards';
 import { Observable, of} from 'rxjs';
 import { Card } from '../common/models/card';
+import { CardType } from '../common/enums/card-type';
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +20,15 @@ export class CardService {
     return of(MockCards.length);
   }
 
-  getByName(name: string): Observable<Card> {
-    const card = this.findByName(name);
+  getByMonsterName(name: string): Observable<Card> {
+    const card = this.findByName(name, CardType.Monster);
     return of(card);
   }
 
-  private findByName(name: string): Card | null {
+  private findByName(name: string, type: CardType): Card | null {
     let card: Card = null;
     MockCards.forEach(element => {
-      if (element.name === name) {
+      if (element.name === name && element.card === type) {
         card = element;
       }
     });

@@ -20,9 +20,8 @@ export class CardDetailsComponent implements OnInit {
 
   ngOnInit() {
     const name = this.route.snapshot.paramMap.get('name');
-    this.cardService.getByName(name)
+    this.cardService.getByMonsterName(name)
       .subscribe((data: Card) => {
-        console.log(data)
         this.card = data;
       });
     this.confirmCard();
