@@ -1,7 +1,11 @@
-<ul>
-  <li *ngFor="let card of cards | async">
-    <app-card
+<app-search></app-search>
+<div class="text-center">
+  <div
+    *ngFor="let card of cards | async"
+    class="card-container"
+    (click)="redirect(card.name)">
+      <app-card
       [name]="card.name"
       [image]="card.image"></app-card>
-  </li>
-</ul>
+  </div>
+</div>

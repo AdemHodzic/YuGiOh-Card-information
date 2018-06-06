@@ -1,3 +1,24 @@
-<p>
-  card-details works!
-</p>
+<div *ngIf="card">
+  <div class="row">
+    <div class="col-sm-5">
+      <h3 class="display-3">{{card.name}}</h3>
+      <img [src]="card.image" alt="Invalid image">
+    </div>
+    <div class="col-sm-6" id="table">
+      <table class="table table-striped table-dark">
+        <tr>
+          <td>Attack: </td>
+          <td><span class="badge badge-danger">{{ card.attack }}</span></td>
+        </tr>
+        <tr>
+            <td>Defense: </td>
+            <td><span class="badge badge-success">{{ card.defense }}</span></td>
+        </tr>
+        <tr>
+            <td>Descirption: </td>
+            <td><p class="lead">{{card.text}}</p></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
