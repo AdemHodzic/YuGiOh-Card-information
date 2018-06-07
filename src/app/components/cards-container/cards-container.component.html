@@ -1,11 +1,14 @@
 <app-search></app-search>
+
 <div class="text-center">
   <div
-    *ngFor="let card of cards | async"
+    *ngFor="let card of cards"
     class="card-container"
     (click)="redirect(card)">
+    <div *ngIf="card">
       <app-card
       [name]="card.name"
       [image]="card.image"></app-card>
+    </div>
   </div>
 </div>

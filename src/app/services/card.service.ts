@@ -9,10 +9,12 @@ import { CardType } from '../common/enums/card-type';
 })
 export class CardService {
 
-  cards: Observable<Card[]> = of(MockCards);
+  cards: Observable<Card[]>;
+  avalaibleTypes: CardType[] = [CardType.Monster, CardType.Spell, CardType.Trap];
   constructor() { }
 
   getAllCards(): Observable<Card[]> {
+    this.filterAllCards();
     return this.cards;
   }
 
@@ -22,19 +24,31 @@ export class CardService {
 
   getByName(name: string): Observable<Card> {
     const card = this.findByName(name);
-    console.log('card in getbyname', card)
     return of(card);
   }
 
+  updateTypes(arr: CardType[]) {
+    this.avalaibleTypes = arr;
+    this.filterAllCards();
+  }
 
+  private filterAllCards() {
+    const arr = [];
+    MockCards.forEach(element => {
+      if (this.avalaibleTypes.includes(element.card)) {
+        arr.push(element);
+      }
+    });
+    console.log('this is arr', arr)
+    this.cards = of(arr);
+  }
   private findByName(name: string): Card | null {
     let card: Card = null;
     MockCards
     .forEach(element => {
-      if (element.name === name) {
+      if (element.name === name ) {
         card = element;
-      }else
-        console.log(element.name, 'nije ', name)
+      }
     });
     return card;
   }

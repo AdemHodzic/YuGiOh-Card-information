@@ -19,7 +19,6 @@ export class TrapDetailsComponent implements OnInit {
 
   ngOnInit() {
     const name = this.route.snapshot.paramMap.get('name');
-    console.log(name)
     this.cardService.getByName(name)
       .pipe( tap(data => console.log(data)) )
       .subscribe(data => this.card = data);

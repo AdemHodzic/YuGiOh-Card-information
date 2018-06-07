@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   search: string;
+  filter = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.filter = !this.filter;
   }
 
 }

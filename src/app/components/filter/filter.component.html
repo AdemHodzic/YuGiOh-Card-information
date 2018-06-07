@@ -1,3 +1,9 @@
-<p>
-  filter works!
-</p>
+
+
+<div class="bg-dark text-center">
+  <form>
+    <button class="btn btn-lg" [ngClass]="{'btn-outline-danger':!monster, 'btn-outline-success': monster}" (click)="toggleMonster()">Monsters</button>
+    <button class="btn btn-lg" [ngClass]="{'btn-outline-danger':!spell, 'btn-outline-success': spell}" (click)="toggleSpell()">Spells</button>
+    <button class="btn btn-lg" [ngClass]="{'btn-outline-danger':!trap, 'btn-outline-success': trap}" (click)="toggleTrap()">Traps</button>
+  </form>
+</div>

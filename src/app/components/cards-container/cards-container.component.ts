@@ -11,14 +11,16 @@ import { Router } from '@angular/router';
 })
 export class CardsContainerComponent implements OnInit {
 
-  cards: Observable<Card[]>;
+  cards: Card[];
   constructor(
     private cardService: CardService,
     private router: Router) { }
 
   ngOnInit() {
-    this.cards = this.cardService.getAllCards();
+    this.cardService.getAllCards()
+      .subscribe(data => this.cards = data);
   }
+
 
   redirect(card: Card) {
     const link = `/details/${card.card}/${card.name}`;
