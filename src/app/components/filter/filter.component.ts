@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardType } from '../../common/enums/card-type';
 import { CardService } from '../../services/card.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -10,14 +11,17 @@ import { CardService } from '../../services/card.service';
 export class FilterComponent implements OnInit {
 
   categories: CardType[];
-  monster = true;
-  spell = true;
-  trap = true;
+  monster: boolean;
+  spell: boolean;
+  trap: boolean;
 
-  constructor(private cardService: CardService) { }
+  constructor(
+    private cardService: CardService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.categories = [CardType.Monster, CardType.Spell, CardType.Trap];
+    this.categories = this.cardService.avalaibleTypes;
+    this.prepareFilters();
   }
 
   update() {
@@ -32,6 +36,7 @@ export class FilterComponent implements OnInit {
       this.categories.push(CardType.Trap);
     }
     this.cardService.updateTypes(this.categories);
+    this.router.navigate(['/']);
   }
 
   toggleMonster() {
@@ -47,4 +52,15 @@ export class FilterComponent implements OnInit {
     this.update();
   }
 
+  private prepareFilters() {
+    if (this.categories.includes(CardType.Monster)) {
+      this.monster = true;
+    }
+    if (this.categories.includes(CardType.Spell)) {
+      this.spell = true;
+    }
+    if (this.categories.includes(CardType.Trap)) {
+      this.trap = true;
+    }
+  }
 }
