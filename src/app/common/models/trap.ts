@@ -12,9 +12,14 @@ export class Trap extends Card {
   constructor(
     name: string,
     image: string,
-    type: TrapType,
     text: string,
-  ) {
-    super();
+    type: TrapType,
+    ) {
+      super();
+      this.name = name;
+      this.image = image;
+      this.text = text;
+      this.type = type;
+
   }
 }

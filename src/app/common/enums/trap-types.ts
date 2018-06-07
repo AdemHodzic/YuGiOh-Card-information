@@ -1,3 +1,5 @@
 export enum TrapType {
-  Normal, Continious, Counter
+  Normal = 'Normal',
+  Continious = 'Continious',
+  Counter = 'Counter'
 }

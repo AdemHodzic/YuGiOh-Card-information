@@ -20,17 +20,21 @@ export class CardService {
     return of(MockCards.length);
   }
 
-  getByMonsterName(name: string): Observable<Card> {
-    const card = this.findByName(name, CardType.Monster);
+  getByName(name: string): Observable<Card> {
+    const card = this.findByName(name);
+    console.log('card in getbyname', card)
     return of(card);
   }
 
-  private findByName(name: string, type: CardType): Card | null {
+
+  private findByName(name: string): Card | null {
     let card: Card = null;
-    MockCards.forEach(element => {
-      if (element.name === name && element.card === type) {
+    MockCards
+    .forEach(element => {
+      if (element.name === name) {
         card = element;
-      }
+      }else
+        console.log(element.name, 'nije ', name)
     });
     return card;
   }

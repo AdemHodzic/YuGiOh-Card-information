@@ -1,3 +1,8 @@
 export enum SpellType {
-  Normal, Continious, Equip, Field, Ritual, 'Quick-play'
+  Normal = 'Normal',
+  Continious = 'Continious',
+  Equip = 'Equip',
+  Field = 'Field',
+  Ritual = 'Ritual',
+  'Quick-play' = 'Quick-play'
 }
