@@ -1,14 +1,18 @@
-<app-search></app-search>
-
-<div class="text-center">
-  <div
-    *ngFor="let card of cards | async"
-    class="card-container"
-    (click)="redirect(card)">
-    <div *ngIf="card">
-      <app-card
-      [name]="card.name"
-      [image]="card.image"></app-card>
+<div >
+  <app-search (toggleEvent)="toggle($event)"></app-search>
+  <div *ngIf="filter">
+      <app-filter (updateEvent)="update($event)"></app-filter>
+    </div>
+  <div class="text-center">
+    <div
+      *ngFor="let card of cards | async"
+      class="card-container"
+      (click)="redirect(card)">
+      <div *ngIf="card">
+        <app-card
+        [name]="card.name"
+        [image]="card.image"></app-card>
+      </div>
     </div>
   </div>
 </div>
