@@ -1,7 +1,11 @@
 <div >
-  <app-search (toggleEvent)="toggle($event)"></app-search>
+  <app-search
+    (toggleEvent)="toggle($event)"
+    (searchEvent)="search($event)"></app-search>
   <div *ngIf="filter">
-      <app-filter (updateEvent)="update($event)"></app-filter>
+      <app-filter
+        (updateEvent)="update($event)"
+        ></app-filter>
     </div>
   <div class="text-center">
     <div

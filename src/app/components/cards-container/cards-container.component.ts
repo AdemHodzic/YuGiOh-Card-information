@@ -39,4 +39,8 @@ export class CardsContainerComponent implements OnInit {
   update(event) {
     this.updateCards();
   }
+
+  search(event) {
+    this.updateCards();
+  }
 }
