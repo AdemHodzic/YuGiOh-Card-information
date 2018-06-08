@@ -8,14 +8,16 @@
         ></app-filter>
     </div>
   <div class="text-center">
-    <div
-      *ngFor="let card of cards | async"
-      class="card-container"
-      (click)="redirect(card)">
-      <div *ngIf="card">
-        <app-card
-        [name]="card.name"
-        [image]="card.image"></app-card>
+    <div *ngIf="cards">
+        <div
+        *ngFor="let card of cards | async"
+        class="card-container"
+        (click)="redirect(card)">
+        <div *ngIf="card">
+          <app-card
+          [name]="card.name"
+          [image]="card.image"></app-card>
+        </div>
       </div>
     </div>
   </div>

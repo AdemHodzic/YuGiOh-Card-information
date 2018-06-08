@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { CardService } from '../../services/card.service';
 import { Card } from '../../common/models/card';
 import { Router } from '@angular/router';
+import { HttpCardsService } from '../../services/http-cards.service';
 
 @Component({
   selector: 'app-cards-container',
@@ -18,10 +19,12 @@ export class CardsContainerComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private router: Router,
-    private cd: ChangeDetectorRef) { }
+    private cd: ChangeDetectorRef,
+    private httpCardService: HttpCardsService) { }
 
   ngOnInit() {
-    this.updateCards();
+    this.cards = this.httpCardService.getAllCards();
+    // this.updateCards();
   }
   redirect(card: Card) {
     const link = `/details/${card.card}/${card.name}`;

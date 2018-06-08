@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RoutingModule } from './modules/routing/routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
@@ -12,6 +14,7 @@ import { CardDetailsComponent } from './components/card-details/card-details.com
 import { InvalidRouteComponent } from './components/invalid-route/invalid-route.component';
 import { SpellDetailsComponent } from './components/spell-details/spell-details.component';
 import { TrapDetailsComponent } from './components/trap-details/trap-details.component';
+import { HttpCardsService } from './services/http-cards.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,10 @@ import { TrapDetailsComponent } from './components/trap-details/trap-details.com
   imports: [
     BrowserModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpCardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
