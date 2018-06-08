@@ -25,16 +25,17 @@ export class FilterComponent implements OnInit {
   }
 
   update() {
-    this.categories = [];
+    const arr = [];
     if (this.monster) {
-      this.categories.push(CardType.Monster);
+      arr.push(CardType.Monster);
     }
     if (this.spell) {
-      this.categories.push(CardType.Spell);
+      arr.push(CardType.Spell);
     }
     if (this.trap) {
-      this.categories.push(CardType.Trap);
+      arr.push(CardType.Trap);
     }
+    this.categories = arr;
     this.cardService.updateTypes(this.categories);
     this.router.navigate(['/']);
   }

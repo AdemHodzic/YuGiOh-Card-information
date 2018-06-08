@@ -2,7 +2,7 @@
 
 <div class="text-center">
   <div
-    *ngFor="let card of cards"
+    *ngFor="let card of cards | async"
     class="card-container"
     (click)="redirect(card)">
     <div *ngIf="card">

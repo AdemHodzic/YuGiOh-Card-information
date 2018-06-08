@@ -9,7 +9,7 @@ import { CardType } from '../common/enums/card-type';
 })
 export class CardService {
 
-  cards: Observable<Card[]>;
+  cards: Observable<Card[]> = of(MockCards);
   avalaibleTypes: CardType[] = [CardType.Monster, CardType.Spell, CardType.Trap];
   constructor() { }
 
@@ -39,7 +39,6 @@ export class CardService {
         arr.push(element);
       }
     });
-    console.log('this is arr', arr)
     this.cards = of(arr);
   }
   private findByName(name: string): Card | null {

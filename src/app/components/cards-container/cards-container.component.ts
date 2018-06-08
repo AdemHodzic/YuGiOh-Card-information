@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnChanges, DoCheck } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CardService } from '../../services/card.service';
 import { Card } from '../../common/models/card';
@@ -11,17 +11,17 @@ import { Router } from '@angular/router';
 })
 export class CardsContainerComponent implements OnInit {
 
-  cards: Card[];
+  cards: Observable<Card[]>;
+  numOfCards: number;
   constructor(
     private cardService: CardService,
-    private router: Router) { }
+    private router: Router,
+    private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.cardService.getAllCards()
-      .subscribe(data => this.cards = data);
+    this.cards = this.cardService.cards;
+
   }
-
-
   redirect(card: Card) {
     const link = `/details/${card.card}/${card.name}`;
     this.router.navigate([link]);
