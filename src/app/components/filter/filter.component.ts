@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CardType } from '../../common/enums/card-type';
 import { CardService } from '../../services/card.service';
 import { Router } from '@angular/router';
@@ -15,9 +15,10 @@ export class FilterComponent implements OnInit {
   spell: boolean;
   trap: boolean;
 
+  @Output() updateEvent: EventEmitter<any> = new EventEmitter();
+
   constructor(
-    private cardService: CardService,
-    private router: Router) { }
+    private cardService: CardService) { }
 
   ngOnInit() {
     this.categories = this.cardService.avalaibleTypes;
@@ -37,7 +38,7 @@ export class FilterComponent implements OnInit {
     }
     this.categories = arr;
     this.cardService.updateTypes(this.categories);
-    this.router.navigate(['/']);
+    this.updateEvent.emit(null);
   }
 
   toggleMonster() {

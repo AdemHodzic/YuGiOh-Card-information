@@ -32,6 +32,17 @@ export class CardService {
     this.filterAllCards();
   }
 
+  search(text: string) {
+    const arr = [];
+    text.toLowerCase();
+    MockCards.forEach(element => {
+      if (element.name.toLowerCase().indexOf(text) !== -1) {
+        arr.push(element);
+      }
+    });
+    this.cards = of(arr);
+  }
+
   private filterAllCards() {
     const arr = [];
     MockCards.forEach(element => {

@@ -7,10 +7,10 @@
         class="form-control"
         name="search"
         id="search"
-        [(ngModel)]="search">
+        [(ngModel)]="text"
+        (keyup)="search()">
       </div>
       <div class="col-lg-2">
-        <button class="btn btn-outline-danger">Search</button>
         <button class="btn btn-outline-danger" (click)="toggle()">Filter</button>
       </div>
     </div>

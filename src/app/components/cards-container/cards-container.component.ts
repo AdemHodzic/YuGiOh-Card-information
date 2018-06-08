@@ -14,21 +14,33 @@ export class CardsContainerComponent implements OnInit {
   cards: Observable<Card[]>;
   numOfCards: number;
   filter = false;
+
   constructor(
     private cardService: CardService,
     private router: Router,
     private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.cards = this.cardService.cards;
-
+    this.updateCards();
   }
   redirect(card: Card) {
     const link = `/details/${card.card}/${card.name}`;
     this.router.navigate([link]);
   }
 
-  toggle() {
+  toggle(event) {
     this.filter = !this.filter;
+  }
+
+  updateCards() {
+    this.cards = this.cardService.cards;
+  }
+
+  update(event) {
+    this.updateCards();
+  }
+
+  search(event) {
+    this.updateCards();
   }
 }
