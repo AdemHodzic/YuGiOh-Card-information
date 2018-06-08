@@ -13,6 +13,7 @@ export class CardsContainerComponent implements OnInit {
 
   cards: Observable<Card[]>;
   numOfCards: number;
+  filter = false;
   constructor(
     private cardService: CardService,
     private router: Router,
@@ -25,5 +26,9 @@ export class CardsContainerComponent implements OnInit {
   redirect(card: Card) {
     const link = `/details/${card.card}/${card.name}`;
     this.router.navigate([link]);
+  }
+
+  toggle() {
+    this.filter = !this.filter;
   }
 }

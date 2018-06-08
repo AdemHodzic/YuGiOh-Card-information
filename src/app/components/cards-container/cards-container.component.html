@@ -1,7 +1,11 @@
-<app-search></app-search>
+<div (toggleEvent)="toggle($event)">
+  <app-search></app-search>
+  <div *ngIf="filter">
+    <app-filter></app-filter>
+  </div>
 
-<div class="text-center">
-  <div
+  <div class="text-center">
+    <div
     *ngFor="let card of cards | async"
     class="card-container"
     (click)="redirect(card)">
@@ -11,4 +15,5 @@
       [image]="card.image"></app-card>
     </div>
   </div>
+</div>
 </div>
